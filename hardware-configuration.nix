@@ -15,7 +15,7 @@
 
   # TODO: Change to labels.
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/5de8f9ab-9ca7-48e1-b89c-36e45d40532d";
+    { device = "/dev/disk/by-label/root";
       fsType = "ext4";
     };
 
@@ -25,6 +25,11 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/data" = {
+    device = "/dev/disk/by-label/data";
+    fsType = "ext4";
+  }
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -33,7 +38,7 @@
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp1s0.useDHCP = lib.mkDefault true;
-  
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
