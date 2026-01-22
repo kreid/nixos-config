@@ -18,6 +18,7 @@
 
   # Configure network connections interactively with nmcli or nmtui.
   # networking.networkmanager.enable = true;
+  networking.dhcpcd.setHostname = false; # Do not pull hostname from DHCP.
 
   # Set your time zone.
   time.timeZone = "America/New_York";
