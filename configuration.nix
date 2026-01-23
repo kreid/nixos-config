@@ -81,6 +81,7 @@
      wget
      parted
      nvme-cli
+     tmux
      git # Needed for Flakes.
   ];
 
