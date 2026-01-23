@@ -64,6 +64,7 @@
     shell = pkgs.bash;
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMHNq51DA5DJ939aDIk+ECsrAhDjZIx5of+MfXxQADH kyle.reid@gmail.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM+RVdTuGgmfuz/aLjoiXYK3NKoR+1ZGnX2NPEruWKHz kyle@kyle-macbookpro.local"
     ];
     packages = with pkgs; [
       tree
@@ -107,6 +108,14 @@
     openFirewall = true;
   };
 
+  # Enable Suwayomi manga reader.
+  services.suwayomi-server = {
+    enable = true;
+    settings = {
+      server.port = 4567;
+    };
+    openFirewall = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
