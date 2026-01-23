@@ -25,7 +25,7 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
-  fileSystems."/var/data" = {
+  fileSystems."data" = {
     device = "/dev/disk/by-label/data";
     fsType = "ext4";
   };

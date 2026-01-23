@@ -115,10 +115,10 @@
     settings = {
       server.port = 4567;
       server.localSourcePath = "/var/data/local_manga";
+      server.autoDownloadNewChapters = true;
       server.extensionRepos = [
         "https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json"
       ];
-    server.autoDownloadNewChapters = true;
     };
     openFirewall = true;
   };
