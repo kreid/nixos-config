@@ -82,6 +82,7 @@
      parted
      nvme-cli
      tmux
+     file
      git # Needed for Flakes.
   ];
 
