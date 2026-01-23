@@ -81,6 +81,7 @@
      wget
      parted
      nvme-cli
+     smartmontools
      tmux
      file
      git # Needed for Flakes.
