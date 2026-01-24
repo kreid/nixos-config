@@ -68,6 +68,7 @@
     ];
     packages = with pkgs; [
       tree
+      internetarchive
     ];
   };
 
