@@ -56,6 +56,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  # Sudo users of the wheel group do not need to provide a password.
+  security.sudo.wheelNeedsPassword = false;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kreid = {
     isNormalUser = true;
