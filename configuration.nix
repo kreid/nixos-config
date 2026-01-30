@@ -86,6 +86,7 @@
      wget
      parted
      nvme-cli
+     xfsprogs
      smartmontools
      tmux
      file
