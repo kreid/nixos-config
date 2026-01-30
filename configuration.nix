@@ -72,6 +72,7 @@
     packages = with pkgs; [
       tree
       internetarchive
+      ripgrep
     ];
   };
 
