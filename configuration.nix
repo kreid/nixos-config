@@ -14,6 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Don't restrict access to kernel ring buffer
+  boot.kernel.sysctl."kernel.dmesg_restrict" = false;
+
   networking.hostName = "homeserver"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
