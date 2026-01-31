@@ -92,6 +92,7 @@
      xfsprogs
      smartmontools
      tmux
+     unzip
      htop
      file
      git # Needed for Flakes.
