@@ -128,7 +128,7 @@
     enable = true;
     settings = {
       server.port = 4567;
-      server.localSourcePath = "/var/data/local_mangas";
+      server.localSourcePath = "/var/data/suwayomi-server/local_mangas";
       server.autoDownloadNewChapters = true;
       server.extensionRepos = [
         "https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json"
