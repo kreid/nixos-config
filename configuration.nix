@@ -93,6 +93,7 @@
      smartmontools
      tmux
      unzip
+     parallel
      htop
      file
      git # Needed for Flakes.
