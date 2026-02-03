@@ -158,6 +158,11 @@
             label = "Downloads";
             path = "/home/kreid/Downloads";
             devices = [ "MacBook Air" ];
+            ignorePatterns = [ 
+              "(?d).DS_Store // macOS custom attributes"
+              "*.part // Incomplete downloads"
+              "*.crdownload // Chromium|e) downloads"
+            ];
           };
         };
       };
