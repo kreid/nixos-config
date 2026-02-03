@@ -145,6 +145,7 @@
         group = "users";
         dataDir = "/home/kreid/";    # Default folder for new synced folders
         configDir = "/home/kreid/.config/syncthing";
+        guiAddress = "0.0.0.0:8384"
     };
   };
 
