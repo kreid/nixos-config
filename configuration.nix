@@ -137,11 +137,34 @@
     openFirewall = true;
   };
 
+  # Enable Syncthing continuous file synchronization.
+  services = {
+    syncthing = {
+        enable = true;
+        user = "kreid";
+        group = "users";
+        dataDir = "/home/kreid/";    # Default folder for new synced folders
+        configDir = "/home/kreid/.config/syncthing";
+    };
+  };
+
+  # TODO: SOPS web GUI user/password.
+  # services.syncthing.settings.gui = {
+  #   user = "username";
+  #  password = "password";
+  # };
+
+  # Syncthing ports: 8384 for remote access to GUI
+  # 22000 TCP and/or UDP for sync traffic
+  # 21027/UDP for discovery
+  # source: https://docs.syncthing.net/users/firewall.html
+  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
