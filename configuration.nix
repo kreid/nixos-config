@@ -140,12 +140,17 @@
   # Enable Syncthing continuous file synchronization.
   services = {
     syncthing = {
-        enable = true;
-        user = "kreid";
-        group = "users";
-        dataDir = "/home/kreid/";    # Default folder for new synced folders
-        configDir = "/home/kreid/.config/syncthing";
-        guiAddress = "0.0.0.0:8384";
+      enable = true;
+      user = "kreid";
+      group = "users";
+      dataDir = "/home/kreid/";    # Default folder for new synced folders
+      configDir = "/home/kreid/.config/syncthing";
+      guiAddress = "0.0.0.0:8384";
+      settings = {
+        devices = {
+          "Home Server" = { id = "YSSVO6U-OSLARLV-OQCRIW6-GALXLM6-D5YTS4A-YUBF6HI-ZOFQMFC-O2C6NQL"; };
+        };
+      };
     };
   };
 
