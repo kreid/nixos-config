@@ -138,17 +138,26 @@
   };
 
   # Enable Syncthing continuous file synchronization.
+  # TODO: SOPS device id's.
   services = {
     syncthing = {
       enable = true;
+      openDefaultPorts = true;
+      guiAddress = "0.0.0.0:8384";
       user = "kreid";
       group = "users";
       dataDir = "/home/kreid/";    # Default folder for new synced folders
       configDir = "/home/kreid/.config/syncthing";
-      guiAddress = "0.0.0.0:8384";
       settings = {
         devices = {
-          "Home Server" = { id = "YSSVO6U-OSLARLV-OQCRIW6-GALXLM6-D5YTS4A-YUBF6HI-ZOFQMFC-O2C6NQL"; };
+          "Home server" = { id = "YSSVO6U-OSLARLV-OQCRIW6-GALXLM6-D5YTS4A-YUBF6HI-ZOFQMFC-O2C6NQL"; };
+          "MacBook Air" = { id = "FBWYNLJ-VALD4DG-KTPZ4HG-AUCST5P-NOPJETV-F4I4WLM-MGRMXRS-XAHGLA2"; };
+        };
+        folders = {
+          "Downloads" = {
+            path = "/home/kreid/Downloads";
+            devices = [ "MacBook Air" ];
+          };
         };
       };
     };
@@ -159,13 +168,6 @@
   #   user = "username";
   #  password = "password";
   # };
-
-  # Syncthing ports: 8384 for remote access to GUI
-  # 22000 TCP and/or UDP for sync traffic
-  # 21027/UDP for discovery
-  # source: https://docs.syncthing.net/users/firewall.html
-  networking.firewall.allowedTCPPorts = [ 8384 22000 ];
-  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
