@@ -154,7 +154,8 @@
           "MacBook Air" = { id = "FBWYNLJ-VALD4DG-KTPZ4HG-AUCST5P-NOPJETV-F4I4WLM-MGRMXRS-XAHGLA2"; };
         };
         folders = {
-          "Downloads" = {
+          "drfnf-ayqbj" = {
+            label = "Downloads";
             path = "/home/kreid/Downloads";
             devices = [ "MacBook Air" ];
           };
