@@ -170,6 +170,10 @@
   # };
 
   # Open ports in the firewall.
+  # Syncthing ports: 8384 for remote access to GUI
+  # source: https://docs.syncthing.net/users/firewall.html
+  networking.firewall.allowedTCPPorts = [ 8384 ];
+
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
