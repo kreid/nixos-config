@@ -154,14 +154,14 @@
           "MacBook Air" = { id = "FBWYNLJ-VALD4DG-KTPZ4HG-AUCST5P-NOPJETV-F4I4WLM-MGRMXRS-XAHGLA2"; };
         };
         folders = {
-          "drfnf-ayqbj" = {
-            label = "Downloads";
+          "Downloads" = {
+            id = "drfnf-ayqbj";
             path = "/home/kreid/Downloads";
             devices = [ "MacBook Air" ];
             ignorePatterns = [ 
-              "(?d).DS_Store // macOS custom attributes"
-              "*.part // Incomplete downloads"
-              "*.crdownload // Chromium|e) downloads"
+              "(?d).DS_Store"
+              "*.part"
+              "*.crdownload"
             ];
           };
         };
