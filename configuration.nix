@@ -158,6 +158,10 @@
             id = "drfnf-ayqbj";
             path = "/home/kreid/Downloads";
             devices = [ "MacBook Air" ];
+            versioning = {
+              type = "trashcan";
+              params.cleanoutDays = "30";
+            };
             ignorePatterns = [ 
               "(?d).DS_Store"
               "*.part"
