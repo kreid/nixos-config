@@ -97,6 +97,7 @@
      parallel
      htop
      file
+     nfs-utils
      git # Needed for Flakes.
   ];
 
