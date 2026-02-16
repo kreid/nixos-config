@@ -76,6 +76,7 @@
       tree
       internetarchive
       ripgrep
+      btop
     ];
   };
 
