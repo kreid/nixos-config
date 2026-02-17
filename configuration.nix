@@ -56,6 +56,15 @@
   #   pulse.enable = true;
   # };
 
+  # NFS
+  boot.supportedFilesystems = [ "nfs" ];
+
+  fileSystems."/mnt/files" = {
+    device = "192.168.1.144:/volume1/Files";
+    fsType = "nfs";
+    options = [ "x-systemd.automount" "noauto" "noatime" ];
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
