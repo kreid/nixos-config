@@ -154,6 +154,21 @@
     allowedHosts = "192.168.1.88:8082";
     settings = {
       target = "_self";
+      statusStyle = "dot";
+      layout =  [
+        {
+          "Media" = {
+            style = "row";
+            columns = "4";
+          };
+        }
+        {
+          "Files" = {
+            style = "row";
+            columns = "4";
+          };
+        }
+      ];
     };
     widgets = [
       {
@@ -172,6 +187,7 @@
               icon = "suwayomi.png";
               href = "http://192.168.1.88:4567";
               description = "Manga reader";
+              siteMonitor = "http://192.168.1.88:4567";
               widget = {
                 type = "suwayomi";
                 url = "http://192.168.1.88:4567";
@@ -187,6 +203,7 @@
               icon = "syncthing.png";
               href = "http://192.168.1.88:8384";
               description = "Continuous file synchronization";
+              siteMonitor = "http://192.168.1.88:8384";
             };
           }
         ];
