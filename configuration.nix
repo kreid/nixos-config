@@ -152,6 +152,9 @@
   services.homepage-dashboard = {
     enable = true;
     allowedHosts = "192.168.1.88:8082";
+    settings = {
+      target = "_self";
+    };
     widgets = [
       {
         resources = {
@@ -166,7 +169,9 @@
         "Media" = [
           {
             "Suwayomi" = {
+              icon = "suwayomi.png";
               href = "http://192.168.1.88:4567";
+              description = "Manga reader";
               widget = {
                 type = "suwayomi";
                 url = "http://192.168.1.88:4567";
