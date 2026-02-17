@@ -123,7 +123,7 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
+  # Enable the OpenSSH daemon
   services.openssh = {
     enable = true;
     settings = {
@@ -134,52 +134,81 @@
     openFirewall = true;
   };
 
-  # Enable Suwayomi manga reader.
+  # Enable Suwayomi manga reader
   services.suwayomi-server = {
     enable = true;
-    settings = {
-      server.port = 4567;
-      server.localSourcePath = "/var/data/suwayomi-server/local_mangas";
-      server.autoDownloadNewChapters = true;
-      server.extensionRepos = [
+    settings.server = {
+      port = 4567;
+      localSourcePath = "/var/data/suwayomi-server/local_mangas";
+      autoDownloadNewChapters = true;
+      extensionRepos = [
         "https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json"
       ];
     };
     openFirewall = true;
   };
 
-  # Enable Syncthing continuous file synchronization.
-  # TODO: SOPS device id's.
-  services = {
-    syncthing = {
-      enable = true;
-      openDefaultPorts = true;
-      guiAddress = "0.0.0.0:8384";
-      user = "kreid";
-      group = "users";
-      dataDir = "/home/kreid/";    # Default folder for new synced folders
-      configDir = "/home/kreid/.config/syncthing";
-      settings = {
-        devices = {
-          "Home server" = { id = "YSSVO6U-OSLARLV-OQCRIW6-GALXLM6-D5YTS4A-YUBF6HI-ZOFQMFC-O2C6NQL"; };
-          "MacBook Air" = { id = "FBWYNLJ-VALD4DG-KTPZ4HG-AUCST5P-NOPJETV-F4I4WLM-MGRMXRS-XAHGLA2"; };
-          "MacBook Pro" = { id = "2NM42ZS-OPYWZNW-VA42QTK-2RKIB5Y-3QNBNPT-KNH6LJL-L7Q2BPI-PK6YKAZ"; };
+  # Enable customizable homepage dashboard
+  services.homepage-dashboard = {
+    enable = true;
+    allowedHosts = "192.168.1.88:8082";
+    widgets = [
+      {
+        resources = {
+          cpu = true;
+          disk = "/";
+          memory = true;
         };
-        folders = {
-          "Downloads" = {
-            id = "drfnf-ayqbj";
-            path = "/home/kreid/Downloads";
-            devices = [ "MacBook Air" "MacBook Pro" ];
-            versioning = {
-              type = "trashcan";
-              params.cleanoutDays = "30";
+      }
+    ];
+    services = [
+      {
+        "Media" = [
+          {
+            "Suwayomi" = {
+              href = "http://192.168.1.88:4567";
+              widget = {
+                type = "suwayomi";
+                url = "http://192.168.1.88:4567";
+              };
             };
-            ignorePatterns = [ 
-              "(?d).DS_Store"
-              "*.part"
-              "*.crdownload"
-            ];
+          }
+        ];
+      }
+    ];
+    openFirewall = true;
+  };
+
+  # Enable Syncthing continuous file synchronization
+  # TODO: SOPS device id's
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    guiAddress = "0.0.0.0:8384";
+    user = "kreid";
+    group = "users";
+    dataDir = "/home/kreid/";    # Default folder for new synced folders
+    configDir = "/home/kreid/.config/syncthing";
+    settings = {
+      devices = {
+        "Home server" = { id = "YSSVO6U-OSLARLV-OQCRIW6-GALXLM6-D5YTS4A-YUBF6HI-ZOFQMFC-O2C6NQL"; };
+        "MacBook Air" = { id = "FBWYNLJ-VALD4DG-KTPZ4HG-AUCST5P-NOPJETV-F4I4WLM-MGRMXRS-XAHGLA2"; };
+        "MacBook Pro" = { id = "2NM42ZS-OPYWZNW-VA42QTK-2RKIB5Y-3QNBNPT-KNH6LJL-L7Q2BPI-PK6YKAZ"; };
+      };
+      folders = {
+        "Downloads" = {
+          id = "drfnf-ayqbj";
+          path = "/home/kreid/Downloads";
+          devices = [ "MacBook Air" "MacBook Pro" ];
+          versioning = {
+            type = "trashcan";
+            params.cleanoutDays = "30";
           };
+          ignorePatterns = [
+            "(?d).DS_Store"
+            "*.part"
+            "*.crdownload"
+          ];
         };
       };
     };
