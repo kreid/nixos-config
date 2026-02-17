@@ -62,7 +62,7 @@
   fileSystems."/mnt/files" = {
     device = "192.168.1.144:/volume1/Files";
     fsType = "nfs";
-    options = [ "x-systemd.automount" "noauto" "noatime" ];
+    options = [ "noauto" "x-systemd.automount" "nofail" "noatime" ];
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
