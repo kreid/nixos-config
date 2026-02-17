@@ -180,6 +180,17 @@
           }
         ];
       }
+      {
+        "Files" = [
+          {
+            "Syncthing" = {
+              icon = "syncthing.png";
+              href = "http://192.168.1.88:8384";
+              description = "Continuous file synchronization";
+            };
+          }
+        ];
+      }
     ];
     openFirewall = true;
   };
