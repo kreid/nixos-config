@@ -222,6 +222,7 @@
               href = "http://homeserver-con.localdomain";
               description = "Next-gen open-source KVM over IP";
               siteMonitor = "http://homeserver-con.localdomain";
+              statusStyle = "basic";
             };
           }
         ];
