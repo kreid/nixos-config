@@ -168,6 +168,12 @@
             columns = "4";
           };
         }
+        {
+          "Utilities" = {
+            style = "row";
+            columns = "4";
+          };
+        }
       ];
     };
     widgets = [
@@ -204,6 +210,18 @@
               href = "http://192.168.1.88:8384";
               description = "Continuous file synchronization";
               siteMonitor = "http://192.168.1.88:8384";
+            };
+          }
+        ];
+      }
+      {
+        "Utilities" = [
+          {
+            "JetKVM" = {
+              icon = "jetkvm.png";
+              href = "http://homeserver-con.localdomain";
+              description = "Next-gen open-source KVM over IP";
+              siteMonitor = "http://homeserver-con.localdomain";
             };
           }
         ];
