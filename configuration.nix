@@ -10,6 +10,9 @@
       ./hardware-configuration.nix
     ];
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -61,6 +64,18 @@
 
   fileSystems."/mnt/files" = {
     device = "192.168.1.144:/volume1/Files";
+    fsType = "nfs";
+    options = [ "noauto" "x-systemd.automount" "nofail" "noatime" ];
+  };
+
+  fileSystems."/mnt/synomedia" = {
+    device = "192.168.1.144:/volume1/data/media";
+    fsType = "nfs";
+    options = [ "noauto" "x-systemd.automount" "nofail" "noatime" ];
+  };
+
+  fileSystems."/mnt/trumedia" = {
+    device = "192.168.1.17:/mnt/tank/data/media";
     fsType = "nfs";
     options = [ "noauto" "x-systemd.automount" "nofail" "noatime" ];
   };
@@ -134,6 +149,12 @@
     openFirewall = true;
   };
 
+  # Enable Plex Media library streaming server
+  services.plex = {
+    enable = true;
+    openFirewall = true;
+  };
+
   # Enable Suwayomi manga reader
   services.suwayomi-server = {
     enable = true;
@@ -194,6 +215,19 @@
     services = [
       {
         "Media" = [
+          {
+            "Plex" = {
+              icon = "plex.png";
+              href = "http://192.168.1.88:32400/web/";
+              description = "Media library streaming server";
+              siteMonitor = "http://192.168.1.88:32400";
+              widget = {
+                type = "plex";
+                url = "http://192.168.1.88:32400";
+                key = "todo";
+              };
+            };
+          }
           {
             "Suwayomi" = {
               icon = "suwayomi.png";
