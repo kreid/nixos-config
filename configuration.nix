@@ -174,6 +174,12 @@
             columns = "4";
           };
         }
+        {
+          "Tracking" = {
+            style = "row";
+            columns = "4";
+          };
+        }
       ];
     };
     widgets = [
@@ -191,7 +197,7 @@
           {
             "Suwayomi" = {
               icon = "suwayomi.png";
-              href = "http://192.168.1.88:4567";
+              href = "http://192.168.1.88:4567/";
               description = "Manga reader";
               siteMonitor = "http://192.168.1.88:4567";
               widget = {
@@ -207,7 +213,7 @@
           {
             "Syncthing" = {
               icon = "syncthing.png";
-              href = "http://192.168.1.88:8384";
+              href = "http://192.168.1.88:8384/";
               description = "Continuous file synchronization";
               siteMonitor = "http://192.168.1.88:8384";
             };
@@ -219,11 +225,25 @@
           {
             "JetKVM" = {
               icon = "jetkvm.png";
-              href = "http://homeserver-con.localdomain";
+              href = "http://homeserver-con.localdomain/";
               description = "Next-gen open-source KVM over IP";
               siteMonitor = "http://homeserver-con.localdomain";
               statusStyle = "basic";
             };
+          }
+        ];
+      }
+    ];
+    bookmarks = [
+      {
+        "Tracking" = [
+          {
+            "AniList" = [
+              {
+                icon = "https://anilist.co/img/icons/icon.svg";
+                href = "https://anilist.co/";
+              }
+            ];
           }
         ];
       }
