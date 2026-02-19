@@ -102,6 +102,7 @@
       internetarchive
       ripgrep
       btop
+      gallery-dl # TODO: Move to home-manager
     ];
   };
 
