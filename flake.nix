@@ -9,7 +9,7 @@
   outputs = { self, nixpkgs, ... }@inputs: {
     nixosConfigurations.homeserver = nixpkgs.lib.nixosSystem {
       modules = [
-        ./configuration.nix
+        ./hosts/homeserver
       ];
     };
   };
