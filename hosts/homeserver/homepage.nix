@@ -47,6 +47,7 @@ in
               widget = {
                 type = "suwayomi";
                 url = "http://${host}:4567";
+                fields = [ "read" "unread" "download" "nondownload" ];
               };
             };
           }
