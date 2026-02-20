@@ -2,7 +2,12 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [
@@ -10,9 +15,6 @@
     ./homepage.nix
     ./syncthing.nix
   ];
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -66,19 +68,34 @@
   fileSystems."/mnt/storage" = {
     device = "192.168.1.144:/volume1/Storage";
     fsType = "nfs";
-    options = [ "noauto" "x-systemd.automount" "nofail" "noatime" ];
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "nofail"
+      "noatime"
+    ];
   };
 
   fileSystems."/mnt/synomedia" = {
     device = "192.168.1.144:/volume1/data/media";
     fsType = "nfs";
-    options = [ "noauto" "x-systemd.automount" "nofail" "noatime" ];
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "nofail"
+      "noatime"
+    ];
   };
 
   fileSystems."/mnt/trumedia" = {
     device = "192.168.1.17:/mnt/tank/data/media";
     fsType = "nfs";
-    options = [ "noauto" "x-systemd.automount" "nofail" "noatime" ];
+    options = [
+      "noauto"
+      "x-systemd.automount"
+      "nofail"
+      "noatime"
+    ];
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -86,6 +103,9 @@
 
   # Sudo users of the wheel group do not need to provide a password.
   security.sudo.wheelNeedsPassword = false;
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kreid = {
@@ -107,24 +127,27 @@
   };
 
   # Enable the Flakes feature and the accompanying new nix command-line tool
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
-     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-     wget
-     parted
-     nvme-cli
-     xfsprogs
-     smartmontools
-     tmux
-     unzip
-     parallel
-     htop
-     file
-     nfs-utils
-     git # Needed for Flakes.
+    vim
+    wget
+    parted
+    nvme-cli
+    xfsprogs
+    smartmontools
+    tmux
+    unzip
+    parallel
+    htop
+    file
+    nfs-utils
+    git # Needed for Flakes.
   ];
 
   # Set the default editor to vim.
@@ -199,4 +222,3 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
 }
-

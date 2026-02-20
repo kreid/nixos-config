@@ -13,14 +13,40 @@ in
       target = "_self";
       statusStyle = "dot";
       layout = [
-        { "Media"     = { style = "row"; columns = "4"; }; }
-        { "Files"     = { style = "row"; columns = "4"; }; }
-        { "Utilities" = { style = "row"; columns = "4"; }; }
-        { "Tracking"  = { style = "row"; columns = "4"; }; }
+        {
+          "Media" = {
+            style = "row";
+            columns = "4";
+          };
+        }
+        {
+          "Files" = {
+            style = "row";
+            columns = "4";
+          };
+        }
+        {
+          "Utilities" = {
+            style = "row";
+            columns = "4";
+          };
+        }
+        {
+          "Tracking" = {
+            style = "row";
+            columns = "4";
+          };
+        }
       ];
     };
     widgets = [
-      { resources = { cpu = true; disk = "/"; memory = true; }; }
+      {
+        resources = {
+          cpu = true;
+          disk = "/";
+          memory = true;
+        };
+      }
     ];
     services = [
       {
@@ -47,7 +73,12 @@ in
               widget = {
                 type = "suwayomi";
                 url = "http://${host}:4567";
-                fields = [ "read" "unread" "download" "nondownload" ];
+                fields = [
+                  "read"
+                  "unread"
+                  "download"
+                  "nondownload"
+                ];
               };
             };
           }
