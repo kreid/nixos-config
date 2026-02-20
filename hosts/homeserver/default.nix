@@ -64,7 +64,7 @@
   boot.supportedFilesystems = [ "nfs" ];
 
   fileSystems."/mnt/storage" = {
-    device = "192.168.1.144:/volume1/Files";
+    device = "192.168.1.144:/volume1/Storage";
     fsType = "nfs";
     options = [ "noauto" "x-systemd.automount" "nofail" "noatime" ];
   };
