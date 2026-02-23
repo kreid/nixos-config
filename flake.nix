@@ -23,7 +23,6 @@
           in
           f pkgs
         );
-
     in
     {
       formatter = forAllSystems (pkgs: pkgs.nixfmt-tree);

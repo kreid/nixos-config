@@ -14,6 +14,7 @@
     ./hardware-configuration.nix
     ./homepage.nix
     ./syncthing.nix
+    ./suwayomi.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -178,20 +179,6 @@
   services.plex = {
     enable = true;
     openFirewall = true;
-  };
-
-  # Enable Suwayomi manga reader
-  services.suwayomi-server = {
-    enable = true;
-    openFirewall = true;
-    settings.server = {
-      port = 4567;
-      localSourcePath = "/var/data/suwayomi-server/local_mangas";
-      autoDownloadNewChapters = true;
-      extensionRepos = [
-        "https://raw.githubusercontent.com/keiyoushi/extensions/repo/index.min.json"
-      ];
-    };
   };
 
   # networking.firewall.allowedTCPPorts = [ ... ];
