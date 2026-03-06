@@ -26,6 +26,12 @@ in
           };
         }
         {
+          "Games" = {
+            style = "row";
+            columns = "4";
+          };
+        }
+        {
           "Utilities" = {
             style = "row";
             columns = "4";
@@ -97,13 +103,33 @@ in
         ];
       }
       {
+        "Games" = [
+          {
+            "Factorio" = {
+              icon = "https://factorio.com/static/img/factorio-wheel.png"; # TODO: Find better and centered icon
+              description = "Factorio game server";
+              widget = {
+                type = "gamedig";
+                serverType = "factorio";
+                url = "udp://factorio.kreid.dev:34197"; # TODO: Use let
+                fields = [
+                  "status"
+                  "players"
+                  "ping"
+                ];
+              };
+            };
+          }
+        ];
+      }
+      {
         "Utilities" = [
           {
             "JetKVM" = {
               icon = "jetkvm.png";
               href = "http://homeserver-con.localdomain/";
               description = "Next-gen open-source KVM over IP";
-              siteMonitor = "http://homeserver-con.localdomain";
+              siteMonitor = "http://homeserver-con.localdomain"; # TODO: Use let
               statusStyle = "basic";
             };
           }

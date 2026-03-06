@@ -15,6 +15,7 @@
     ./homepage.nix
     ./syncthing.nix
     ./suwayomi.nix
+    ./factorio.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
